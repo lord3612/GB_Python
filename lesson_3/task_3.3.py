@@ -11,24 +11,23 @@
 по ключам? Можно ли использовать словарь в этом случае?
 """
 
-# user_answer = str.title(input('Введите имена через пробел: '))
-user_answer = ('Антон Алина Дима Вася Коля Алеша Дарья Анжела')
-my_list = user_answer.split(' ')
-print(my_list)
-print(my_list[0])
-idx = 0
+
+def thesaurus(user_answer):
+    my_list = user_answer.split(' ')
+    print(my_list)
+    print(my_list[0])
+    idx = 0
+    while idx < len(my_list):
+        elem = str(my_list[idx])
+        first_symbol = elem[:1]
+        if first_symbol in my_dict:
+            my_dict.setdefault(first_symbol).append(elem)
+        else:
+            my_dict.setdefault(first_symbol, [elem])
+        idx += 1
+
+
 my_dict = {}
-while idx < len(my_list):
-    elem = str(my_list[idx])
-    symb = elem[:1]
-    if symb in my_dict:
-        my_dict.update()
-    else:
-        my_dict.setdefault(symb, elem)
-    idx += 1
+thesaurus(str.title(input('Введите имена через пробел: ')))
 print(my_dict)
 
-
-
-
-# dict.fromkeys(seq[, value])
