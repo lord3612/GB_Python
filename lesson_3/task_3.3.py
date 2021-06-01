@@ -14,8 +14,6 @@
 
 def thesaurus(user_answer):
     my_list = user_answer.split(' ')
-    print(my_list)
-    print(my_list[0])
     idx = 0
     while idx < len(my_list):
         elem = str(my_list[idx])
