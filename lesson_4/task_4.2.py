@@ -28,7 +28,7 @@ def currency_rates(currency):
         idx_cur_start = content.index('<Value>', idx_cur)
         idx_cur_end = content.index('</Value>', idx_cur)
         course_cur = Decimal('.'.join(content[idx_cur_start + 7:idx_cur_end].split(',')))
-        print(f'Курс валюты {currency} на {date.strftime("%d-%m-%Y %H:%M")} = {course_cur}')
+        print(f'Курс валюты {currency} на {date.strftime("%d-%m-%Y")} = {course_cur}')
     else:
         print('Такой валюты нет')
 
