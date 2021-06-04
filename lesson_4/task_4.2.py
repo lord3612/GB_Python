@@ -28,11 +28,12 @@ def currency_rates(currency):
         idx_cur_start = content.index('<Value>', idx_cur)
         idx_cur_end = content.index('</Value>', idx_cur)
         course_cur = Decimal('.'.join(content[idx_cur_start + 7:idx_cur_end].split(',')))
-        print(f'Курс валюты {currency} на {date.strftime("%d-%m-%Y")} = {course_cur}')
+        data_server = response.headers.pop('Date')  # По ключу из словаря
+        print(f'Курс валюты {currency} на {data_server} = {course_cur}')  # Вариант вывода даты с сервера
+        print(f'Курс валюты {currency} на {date.strftime("%d-%m-%Y")} = {course_cur}')  # Вариант с датой через ф-ию
     else:
         print('Такой валюты нет')
 
 
 currency_rates(input('Введите код валюты (например, USD, EUR, GBP, ...): '))
-
 
