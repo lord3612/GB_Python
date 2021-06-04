@@ -3,11 +3,8 @@
 > python task_4_5.py USD
 75.18, 2020-09-05
 """
-
+import sys
 from utils import currency_rates
 
-currency_rates(input("Введите код валюты: "))
-
-"""
-Не понял немного задание, ни чего дорабатывать не пришлось, код и так работает из консоли
-"""
+cur = sys.argv[1]
+currency_rates(cur)  # Для успешного запуска через PyCharm установлен параметр 'UDS'
