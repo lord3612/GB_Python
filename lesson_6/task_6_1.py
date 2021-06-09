@@ -10,3 +10,8 @@
     ...
 ]
 """
+with open('nginx_logs.txt', encoding='utf-8') as f:
+    for line in f:
+        my_gen = ((line[:line.find(' - -')], line[line.find(' "') + 2:line.find(' /')],
+                   line[line.find('/d'):line.find(' HTTP')]) for elem in range(1, len(line)))
+    print(*list(my_gen), sep='\n')
