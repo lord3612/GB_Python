@@ -14,3 +14,31 @@
 скалолазание,охота
 горные лыжи
 """
+# Создал и заполнил файлы
+# users = open('users.csv', 'w', encoding='utf-8')
+# users.write('Иванов,Иван,Иванович\nПетров,Петр,Петрович')
+# users.close()
+#
+# hobby = open('hobby.csv', 'w', encoding='utf-8')
+# hobby.write('скалолазание,охота\nгорные лыжи')
+# hobby.close()
+import json
+from itertools import zip_longest
+
+with open('users.csv', encoding='utf-8') as users:
+    with open('hobby.csv', encoding='utf-8') as hobby:
+        # Проверка количества строк в файлах
+        if sum(1 for line_user in users) < sum(1 for line_hobby in hobby):
+            exit(1)
+        # Возврат к началу документа
+        users.seek(0)
+        hobby.seek(0)
+        # Решение задичи
+        my_dict = {}
+        for line_user, line_hobby in zip_longest(users, hobby):
+            my_dict[line_user.strip()] = line_hobby.strip() if line_hobby is not None else line_hobby
+
+with open('users_hobby.json', 'r+', encoding='utf-8') as users_hobby:
+    json.dump(my_dict, users_hobby, ensure_ascii=False)
+    data = json.load(users_hobby)
+    print(data)

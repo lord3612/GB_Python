@@ -5,12 +5,6 @@
 """
 from collections import Counter
 
-
-# src = [2, 2, 2, 7, 23, 1, 44, 44, 3, 2, 10, 7, 4, 11]
-# print(Counter(src))
-# result = (Counter(src) for num in src)
-# print(list(result))
-
 with open('nginx_logs.txt', encoding='utf-8') as f:
     new_list = []
     for line in f:
