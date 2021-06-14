@@ -25,3 +25,10 @@ python show_sales.py 1 3
 8914,3
 7879,1
 """
+import sys
+
+sale = sys.argv[1]
+
+with open('bakery.csv', 'a', encoding='utf-8') as add_sale:
+    add_sale.write(f'{sale}\n')
+    print(f'Введеная сумма внесена успешно! =)')
